@@ -44,6 +44,7 @@ public:
 			ROOT = newNode; // Mark the new node as ROOT
 			return; //exit
 		}
+
 		if (element < parent->info) // If the values in the data field of the new node is less than that of the
 		{
 			parent->leftchild = newNode; // Make the left child of the parent to the new node
@@ -54,6 +55,20 @@ public:
 		}
 	}
 
+	void search(string element, Node*& parent, Node*& currentNode)
+	{
+		//this function searches the currentNode of the specified Node as well as the current Node of its parents
+		currentNode = ROOT;
+		parent = nullptr;
+		while ((currentNode != nullptr) && (currentNode->info != element))
+		{
+			parent = currentNode;
+			if (element < currentNode->info)
+				currentNode = currentNode->leftchild;
+			else
+				currentNode = currentNode->rightchild;
+		}
+	}
 };
 
 int main()
