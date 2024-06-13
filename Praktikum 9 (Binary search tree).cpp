@@ -30,8 +30,17 @@ public:
 
 	void insert(string element) // Insert a node in the binary search tree
 	{
-	
+		Node* newNode = new Node(element, nullptr, nullptr); // allocate memory for the new node
+		newNode->info = element; // Assign value to the data field of the new node
+		newNode->leftchild = nullptr; // Make the left childe of the new node point to NULL
+		newNode->rightchild = nullptr; // Make the right child of the new node point to NULL
+
+		Node* parent = nullptr; 
+		Node* currentNode = nullptr; 
+		search(element, parent, currentNode); // Locate the node which will be the parent of the node to be insert
+
 	}
+
 };
 
 int main()
